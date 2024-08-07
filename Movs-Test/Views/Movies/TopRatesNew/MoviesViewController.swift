@@ -69,8 +69,6 @@ class MoviesViewController: UIViewController {
             }
             .store(in: &cancellables)
     }
-
-
 }
 
 extension MoviesViewController: UISearchBarDelegate {

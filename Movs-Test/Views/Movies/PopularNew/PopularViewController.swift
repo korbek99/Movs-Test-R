@@ -70,7 +70,6 @@ class PopularViewController: UIViewController {
             .store(in: &cancellables)
     }
 
-
 }
 
 extension PopularViewController: UISearchBarDelegate {

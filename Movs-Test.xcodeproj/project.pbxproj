@@ -40,6 +40,7 @@
 		574D0F2E2C6300F500878591 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574D0F2D2C6300F500878591 /* FavoritesViewController.swift */; };
 		574D0F332C63010800878591 /* FavoritesDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574D0F322C63010800878591 /* FavoritesDetailsViewController.swift */; };
 		574D0F382C63012200878591 /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574D0F372C63012200878591 /* FavoritesTableViewCell.swift */; };
+		574D0F412C630F5600878591 /* MovFavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574D0F402C630F5600878591 /* MovFavoritesViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		574D0F2D2C6300F500878591 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		574D0F322C63010800878591 /* FavoritesDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesDetailsViewController.swift; sourceTree = "<group>"; };
 		574D0F372C63012200878591 /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
+		574D0F402C630F5600878591 /* MovFavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovFavoritesViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +246,7 @@
 			children = (
 				574D0EF52C62792500878591 /* MovieViewModel.swift */,
 				574D0F142C62F0A100878591 /* FavoritesViewModel.swift */,
+				574D0F402C630F5600878591 /* MovFavoritesViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -484,6 +487,7 @@
 				574D0EBC2C61FDB300878591 /* DetailsMovieViewController.swift in Sources */,
 				574D0EC12C61FDC700878591 /* MoviesTableViewCell.swift in Sources */,
 				574D0EEC2C62782000878591 /* NetworkService.swift in Sources */,
+				574D0F412C630F5600878591 /* MovFavoritesViewModel.swift in Sources */,
 				574D0EE12C61FFA100878591 /* PopularDetailsViewController.swift in Sources */,
 				571120582255706D008EAE66 /* Movs_Test.xcdatamodeld in Sources */,
 				574D0EB72C61FD9D00878591 /* MoviesViewController.swift in Sources */,
