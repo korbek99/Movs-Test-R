@@ -24,11 +24,22 @@ class FavoritesViewController: UIViewController {
     
     private var movies: [MovFavorites] = []
     
+    private lazy var emptyLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Data empty"
+        label.textAlignment = .center
+        label.textColor = .gray
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.isHidden = true
+        return label
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Favorites"
         view.backgroundColor = .white
         setupTableView()
+        setupEmptyLabel()
         fetchAndReloadData()
     }
     
@@ -41,16 +52,27 @@ class FavoritesViewController: UIViewController {
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
-
+    
+    private func setupEmptyLabel() {
+        view.addSubview(emptyLabel)
+        NSLayoutConstraint.activate([
+            emptyLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            emptyLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            emptyLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            emptyLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+        ])
+    }
+    
     private func fetchAndReloadData() {
         movies = viewModel.fetchAllMovies()
         tableView.reloadData()
+        emptyLabel.isHidden = !movies.isEmpty
     }
 }
 
 extension FavoritesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+       
         return movies.count
     }
 
@@ -79,7 +101,7 @@ extension FavoritesViewController: UITableViewDataSource, UITableViewDelegate {
         if editingStyle == .delete {
             let movieToDelete = movies[indexPath.row]
             viewModel.deleteMovie(movie: movieToDelete)
-            fetchAndReloadData() 
+            fetchAndReloadData()
         }
     }
 }

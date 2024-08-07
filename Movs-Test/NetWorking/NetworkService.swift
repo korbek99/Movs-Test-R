@@ -60,11 +60,7 @@ class NetworkService {
     
     func fetchIndicadorFavorites(completion: @escaping ([Movie]?) -> Void) {
         let endpointData = getEndpoint(fromName: "crearIssuefav")
-//        var headers: [String: String] = ["Content-Type" : "application/json"]
-//        headers["x-api-key"] = endpointData.APIKey
-//        if let APIToken = endpointData.APIToken {
-//            headers["x-api-token"] = APIToken
-//        }
+
         let urlString = endpointData!.url.absoluteString
         guard let url = URL(string: urlString) else {
             completion(nil)
