@@ -34,6 +34,7 @@ class MoviesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "TopRates"
+        
         view.backgroundColor = .white
         setupSearchBar()
         setupTableView()
@@ -52,7 +53,6 @@ class MoviesViewController: UIViewController {
     
     private func setupTableView() {
         view.addSubview(tableView)
-        
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),

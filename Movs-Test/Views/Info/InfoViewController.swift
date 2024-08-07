@@ -18,9 +18,9 @@ class InfoViewController: UIViewController {
     }
     
     private func setupInfoLabels() {
-        // Información de la aplicación
+        
         let appInfoLabel = UILabel()
-        appInfoLabel.text = "Nombre de la App: TuApp\nTipo de App: Información\nCreador: Tu Nombre"
+        appInfoLabel.text = "App Name: Movs-Test\nType App: Only Test\nCreador: JB"
         appInfoLabel.numberOfLines = 0
         appInfoLabel.textAlignment = .center
         appInfoLabel.font = UIFont.systemFont(ofSize: 18)
@@ -28,7 +28,6 @@ class InfoViewController: UIViewController {
         
         view.addSubview(appInfoLabel)
         
-        // Constraints
         NSLayoutConstraint.activate([
             appInfoLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             appInfoLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),

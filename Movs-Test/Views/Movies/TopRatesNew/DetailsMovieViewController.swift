@@ -8,8 +8,10 @@
 import UIKit
 
 class DetailsMovieViewController: UIViewController {
-    var movies: Movie? 
+    var movies: Movie?
     let pathWebpicture = "http://image.tmdb.org/t/p/w500"
+    let viewModel = MovFavoritesViewModel()
+
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -61,15 +63,47 @@ class DetailsMovieViewController: UIViewController {
         return label
     }()
 
+    lazy var saveButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Save to Favorites", for: .normal)
+        button.addTarget(self, action: #selector(saveToFavorites), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Details TopRates"
+        saveButton.isEnabled = true
         view.backgroundColor = .white
         setupViews()
         setupConstraints()
         configureDetailView()
     }
 
+    @objc func saveToFavorites() {
+        guard let movies = movies else { return }
+        
+        viewModel.addMovie(adult: movies.adult,
+                           backdropPath: movies.backdropPath,
+                           genreIDS: movies.genreIDS.first ?? 0, // Esto asume que solo te interesa el primer género.
+                           id: movies.id,
+                           originalLanguage: movies.originalLanguage,
+                           originalTitle: movies.originalTitle,
+                           overview: movies.overview,
+                           popularity: movies.popularity,
+                           posterPath: movies.posterPath,
+                           releaseDate: movies.releaseDate,
+                           title: movies.title,
+                           video: movies.video,
+                           voteAverage: movies.voteAverage,
+                           voteCount: movies.voteCount)
+        
+        let alert = UIAlertController(title: "Saved", message: "Movie added to favorites!", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true)
+    }
+    
     func configureDetailView() {
         guard let movies = movies else { return }
         titleLabel.text = "Title: " + movies.originalTitle
@@ -102,6 +136,7 @@ class DetailsMovieViewController: UIViewController {
         contentView.addSubview(titleLabel)
         contentView.addSubview(descripLabel)
         contentView.addSubview(langLabel)
+        contentView.addSubview(saveButton)
     }
 
     func setupConstraints() {
@@ -132,7 +167,10 @@ class DetailsMovieViewController: UIViewController {
             
             langLabel.topAnchor.constraint(equalTo: descripLabel.bottomAnchor, constant: 20),
             langLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            langLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20)
+            langLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            
+            saveButton.topAnchor.constraint(equalTo: langLabel.bottomAnchor, constant: 10),
+            saveButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor)
         ])
     }
 }

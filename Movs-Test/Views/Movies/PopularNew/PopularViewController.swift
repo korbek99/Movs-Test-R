@@ -42,7 +42,6 @@ class PopularViewController: UIViewController {
     
     private func setupSearchBar() {
         view.addSubview(searchBar)
-        
         NSLayoutConstraint.activate([
             searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -52,7 +51,6 @@ class PopularViewController: UIViewController {
     
     private func setupTableView() {
         view.addSubview(tableView)
-        
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
