@@ -86,7 +86,7 @@ class DetailsMovieViewController: UIViewController {
         
         viewModel.addMovie(adult: movies.adult,
                            backdropPath: movies.backdropPath,
-                           genreIDS: movies.genreIDS.first ?? 0, // Esto asume que solo te interesa el primer género.
+                           genreIDS: movies.genreIDS.first ?? 0,
                            id: movies.id,
                            originalLanguage: movies.originalLanguage,
                            originalTitle: movies.originalTitle,
